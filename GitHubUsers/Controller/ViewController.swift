@@ -91,24 +91,20 @@ extension ViewController: UICollectionViewDataSource {
         if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "WelcomeSectionHeader", for: indexPath) as? WelcomeUICollectionReusableView {
             
             if indexPath.section == 0 {
+               
                 sectionHeader.welcomeLabel.text = "Welcome"
                 sectionHeader.nameLabel.text = "Adnan Lacevic"
-                sectionHeader.nameLabel.font = UIFont.boldSystemFont(ofSize: 16)
+                sectionHeader.nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
                 sectionHeader.nameLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-                
             } else if indexPath.section == 1 {
                 
                 sectionHeader.welcomeLabel.text = " "
                 sectionHeader.nameLabel.text = "Top rated instructors"
                 sectionHeader.nameLabel.font = UIFont.boldSystemFont(ofSize: 13)
                 sectionHeader.nameLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-                
             }
-            
             return sectionHeader
         }
-        
-        
         return UICollectionReusableView()
     }
 }

@@ -14,5 +14,4 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
-    
 }

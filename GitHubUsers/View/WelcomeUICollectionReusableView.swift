@@ -11,5 +11,4 @@ import UIKit
 class WelcomeUICollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    
 }

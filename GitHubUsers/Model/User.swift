@@ -19,10 +19,10 @@ struct User {
     init?(with dict: [String:Any]) {
         
         guard let avatarUrl = dict["avatar_url"] as? String,
-        let login = dict["login"] as? String,
-        let id = dict["id"] as? Int,
-        let type = dict["type"] as? String,
-        let siteAdmin = dict["site_admin"] as? Bool else { return nil }
+            let login = dict["login"] as? String,
+            let id = dict["id"] as? Int,
+            let type = dict["type"] as? String,
+            let siteAdmin = dict["site_admin"] as? Bool else { return nil }
         
         self.avatarUrl = avatarUrl
         self.login = login

@@ -17,5 +17,4 @@ class ButtonCollectionViewCell: UICollectionViewCell {
         }
     }
     @IBOutlet weak var label: UILabel!
-    
 }
