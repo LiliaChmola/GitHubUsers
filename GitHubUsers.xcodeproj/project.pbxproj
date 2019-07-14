@@ -15,6 +15,7 @@
 		8450F5ED22DA3E6400A15011 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450F5EC22DA3E6400A15011 /* User.swift */; };
 		8450F5F022DA432E00A15011 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450F5EF22DA432E00A15011 /* NetworkManager.swift */; };
 		8450F5F222DA50CE00A15011 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450F5F122DA50CE00A15011 /* CollectionViewCell.swift */; };
+		8450F5F422DB879D00A15011 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450F5F322DB879D00A15011 /* ButtonCollectionViewCell.swift */; };
 		C6D9DA279E74ACB968A85D98 /* Pods_GitHubUsers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 773F8CBB2A2D1798CB89795F /* Pods_GitHubUsers.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		8450F5EC22DA3E6400A15011 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8450F5EF22DA432E00A15011 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8450F5F122DA50CE00A15011 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		8450F5F322DB879D00A15011 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8A5841BCFAD6CDB401EC25C /* Pods-GitHubUsers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubUsers.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubUsers/Pods-GitHubUsers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 			children = (
 				8450F5BD22D8BA7800A15011 /* Main.storyboard */,
 				8450F5F122DA50CE00A15011 /* CollectionViewCell.swift */,
+				8450F5F322DB879D00A15011 /* ButtonCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				8450F5F022DA432E00A15011 /* NetworkManager.swift in Sources */,
 				8450F5BC22D8BA7800A15011 /* ViewController.swift in Sources */,
 				8450F5BA22D8BA7800A15011 /* AppDelegate.swift in Sources */,
+				8450F5F422DB879D00A15011 /* ButtonCollectionViewCell.swift in Sources */,
 				8450F5ED22DA3E6400A15011 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

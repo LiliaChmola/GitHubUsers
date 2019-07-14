@@ -12,17 +12,6 @@ import SDWebImage
 class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionViewHeightLayoutConstraint: NSLayoutConstraint!
-    @IBOutlet weak var findASchoolButton: UIButton! {
-        didSet {
-            findASchoolButton.setStyle()
-        }
-    }
-    @IBOutlet weak var findInstructorButton: UIButton! {
-        didSet {
-            findInstructorButton.setStyle()
-        }
-    }
     private let networkManager = NetworkManager()
     private let since = 0
     private var users = [User]()
@@ -33,9 +22,7 @@ class ViewController: UIViewController {
         
         networkManager.getDetailsFrom(since: 0) { [weak self] (users) in
             self?.users = users
-            self?.collectionView.reloadData()
-            self?.view.layoutIfNeeded()
-            self?.collectionViewHeightLayoutConstraint.constant = self?.collectionView.contentSize.height ?? 0
+            self?.collectionView.reloadData()           
         }
     }
 }
@@ -44,20 +31,48 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return users.count
+        if section == 0 {
+            return 2
+        }
+        
+        if section == 1 {
+            return users.count
+        }
+        
+        return 0
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCollectionViewCell", for: indexPath) as! ButtonCollectionViewCell
+            if indexPath.row == 0 {
+                cell.label.text = "Find an instructor"
+                cell.imageView.image = #imageLiteral(resourceName: "wheel")
+            } else if indexPath.row == 1 {
+                cell.label.text = "Find a school"
+                cell.imageView.image = #imageLiteral(resourceName: "school")
+            }
+            
+            return cell
+        }
         
-        let user = users[indexPath.row]
-        cell.idLabel.text = String(user.id)
-        cell.typeLabel.text = String(user.type)
-        cell.loginLabel.text = String(user.login)
-        cell.imageView.sd_setImage(with: URL(string: user.avatarUrl), placeholderImage: UIImage(named: "placeholder"))
+        if indexPath.section == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+            let user = users[indexPath.row]
+            cell.idLabel.text = String(user.id)
+            cell.typeLabel.text = String(user.type)
+            cell.loginLabel.text = String(user.login)
+            cell.imageView.sd_setImage(with: URL(string: user.avatarUrl), placeholderImage: UIImage(named: "placeholder"))
+            
+            return cell
+        }
         
-        return cell
+        return UICollectionViewCell()
     }
 }
 
@@ -74,8 +89,16 @@ extension ViewController: UICollectionViewDelegate {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenSize = UIScreen.main.bounds.size
-        return CGSize.init(width: screenSize.width * 0.4, height: screenSize.height * 0.4)
+        if indexPath.section == 0 {
+            
+            let screenSize = UIScreen.main.bounds.size
+            return CGSize.init(width: screenSize.width * 0.4, height: screenSize.height * 0.3)
+        } else if indexPath.section == 1 {
+            
+            let screenSize = UIScreen.main.bounds.size
+            return CGSize.init(width: screenSize.width * 0.4, height: screenSize.height * 0.4)
+        }
+        return CGSize.init()
     }
 }
 
