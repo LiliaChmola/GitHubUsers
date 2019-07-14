@@ -13,9 +13,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     private let networkManager = NetworkManager()
-    private let since = 0
+    private var since = 0
     private var users = [User]()
-    
+
     // MARK: - Controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,8 +80,13 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == (users.count-1) {
-            print("Last cell")
+        
+        if indexPath.item == users.count - 1 {
+            self.since += 30
+            networkManager.getDetailsFrom(since: since) { [weak self] (users) in
+                self?.users.append(contentsOf: users)
+                self?.collectionView.reloadData()
+            }
         }
     }
 }
