@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     private let networkManager = NetworkManager()
     private var since = 0
     private var users = [User]()
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     // MARK: - Controller lifecycle
     override func viewDidLoad() {
